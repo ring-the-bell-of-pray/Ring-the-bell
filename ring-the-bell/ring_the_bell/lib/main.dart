@@ -60,6 +60,38 @@ class _RingTheBellState extends State<RingTheBellPage> {
             appBar: AppBar(
                 title: Text(widget.title),
             ),
+            drawer: Drawer(
+                child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: [
+                        // 첫번째 자식은 거의 DrawerHeader를 사용한다.
+                        DrawerHeader(
+                            child: Text(
+                                'Ring a bell',
+                                style: TextStyle(color: Colors.white),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.indigo
+                            ),
+                        ),
+                        ListTile(
+                            title: Text('Type1'),
+                            onTap:() {},
+                        ),
+                        ListTile(
+                            title: Text('Type2'),
+                            onTap:() {},
+                        ),
+                        ListTile(
+                            title: Text('close'),
+                            onTap:() {
+                                // 사용자가 drawer를 열면 navigation stack에 drawer가 추가된다. 즉 drawer를 닫으려면 stack에서 닫을 drawer를 pop하면 된다.
+                                Navigator.pop(context);
+                            },
+                        )
+                    ]
+                ),
+            ),
             body: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
